@@ -1,0 +1,32 @@
+version: '3.7'
+
+services:
+  example-root-config:
+    build:
+      context: ./example-root-config
+      target: development
+    volumes:
+      - ./example-root-config:/var/app
+      - /var/app/node_modules
+    ports:
+      - 80:80
+
+  header:
+    build:
+      context: ./header
+      target: development
+    volumes:
+      - ./header:/var/app
+      - /var/app/node_modules
+    ports:
+      - 8080:8080
+
+  counter:
+    build:
+      context: ./counter
+      target: development
+    volumes:
+      - ./counter:/var/app
+      - /var/app/node_modules
+    ports:
+      - 8081:8081
